@@ -1,10 +1,7 @@
-var target = document.getElementById('target')
-for (let index = 1; index < 4584; index++) {
-    var div = document.createElement("div");
-    div.id = index;
-    if(Math.random() < .4){
-        div.style ="visibility:hidden;"
-    }
-    target.appendChild(div)
-    
-}
+const target = document.getElementById('target')
+var array = new Array(4584).fill(undefined).map((_,index)=> {
+    var style = (Math.random() < .4) ? {visibility:'hidden'} : {};
+    return <div key={index} style={style}/>
+
+});
+ReactDOM.render(array, target);
