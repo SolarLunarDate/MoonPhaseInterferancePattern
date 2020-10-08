@@ -3,23 +3,14 @@ $pixel-margin: 5px;
 
 
 @mixin create-column-width($columns) {
-    width: ($pixel-size + $pixel-margin * 2) * 12 * $columns ;
+    &.columns-#{$columns} {width: ($pixel-size + $pixel-margin * 2) * 12 * $columns} ;
 }
 
 
 #phases {
-    &.columns-1{ @include create-column-width(1) }
-    &.columns-2{ @include create-column-width(2) }
-    &.columns-3{ @include create-column-width(3) }
-    &.columns-4{ @include create-column-width(4) }
-    &.columns-5{ @include create-column-width(5) }
-    &.columns-6{ @include create-column-width(6) }
-    &.columns-7{ @include create-column-width(7) }
-    &.columns-8{ @include create-column-width(8) }
-    &.columns-9{ @include create-column-width(9) }
-    &.columns-10{ @include create-column-width(10) }
-    &.columns-11{ @include create-column-width(11) }
-    &.columns-12{ @include create-column-width(12) }
+    @for $column from 1 through 13{
+        @include create-column-width($column);
+    }
 
     display: flex;
     flex-wrap: wrap;
