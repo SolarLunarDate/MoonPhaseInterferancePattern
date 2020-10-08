@@ -7,9 +7,12 @@
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
     "@babel/preset-react": "^7.10.4",
+    "eslint": "^7.10.0",
+    "eslint-plugin-react": "^7.21.3",
     "sass": "^1.27.0"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
