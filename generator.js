@@ -25,7 +25,7 @@ function UpdateVisibilityStyle(){
 
 function App(){
   const [numberOfPhases, setnumberOfPhases] = React.useState(
-    parseInt(window.localStorage.getItem('numberOfPhases')) || 4584,
+   () => parseInt(window.localStorage.getItem('numberOfPhases')) || 4584,
     );
   React.useEffect(() => {
     window.localStorage.setItem('numberOfPhases', numberOfPhases)
