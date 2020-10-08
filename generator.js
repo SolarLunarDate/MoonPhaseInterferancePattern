@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 
 const target = document.getElementById('target')
 
-function Phase({index, ...rest}){
+function Phase({...rest}){
   const [visibility, setVisibility] = React.useState(UpdateVisibilityStyle());
-  const handleChange = () => setVisibility({visibility:'visible'});
-  //var style = visibility? {visibility:'visible'} : {};
-  return <div key={index} style={visibility} {...rest}/>
+  const handleChange = () => setVisibility(UpdateVisibilityStyle());
+  return <div onMouseOver={handleChange} style={visibility} {...rest} />
 }
 
 function CreatePhases(numberOfPhases, numberOfColumns){
@@ -18,6 +18,11 @@ function CreatePhases(numberOfPhases, numberOfColumns){
       </div>
     )
 }
+CreatePhases.propTypes = {
+  numberOfPhases: PropTypes.number.isRequired,
+  numberOfColumns: PropTypes.number.isRequired
+}
+
 function UpdateVisibilityStyle(){
   return (Math.random() > .3) ? {visibility:'visible'} : {};
 }
@@ -44,10 +49,10 @@ function App(){
             <div>
               <form onSubmit={(e)=>e.preventDefault()}>
                 <label htmlFor="numberOfPhases">Number of Phases</label>
-                <input type="number" onChange={handleNumberOfPhasesChange} id="numberOfPhases" value={numberOfPhases.toString()}/>
+                <input min="1" type="number" onChange={handleNumberOfPhasesChange} id="numberOfPhases" value={numberOfPhases.toString()}/>
               
                 <label htmlFor="numberOfColumns">Number of Columns</label>
-                <input type="number" onChange={handleNumberOfColumnsChange} id="numberOfColumns" value={numberOfColumns.toString()}/>
+                <input max="13" min="1" type="number" onChange={handleNumberOfColumnsChange} id="numberOfColumns" value={numberOfColumns.toString()}/>
               
               </form>
               {CreatePhases(numberOfPhases, numberOfColumns)}
