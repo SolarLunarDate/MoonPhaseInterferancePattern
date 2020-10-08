@@ -10,10 +10,10 @@ function Phase({index, ...rest}){
   return <div key={index} style={visibility} {...rest}/>
 }
 
-function CreatePhases(numberOfPhases){
+function CreatePhases(numberOfPhases, numberOfColumns){
     const array = new Array(numberOfPhases).fill(undefined).map((_,index)=> <Phase key={index}/>);
     return (
-      <div id="phases">
+      <div id="phases" className={"columns-"+numberOfColumns}>
         {array}
       </div>
     )
@@ -22,22 +22,35 @@ function UpdateVisibilityStyle(){
   return (Math.random() > .3) ? {visibility:'visible'} : {};
 }
 
+function useLocalStorageState(key, defaultValue=''){
+  const [state, setState] = React.useState(
+    () => parseInt(window.localStorage.getItem(key)) || defaultValue,
+     );
+   React.useEffect(() => {
+     window.localStorage.setItem(key, state), [state]
+   })
+   return [state, setState]
+
+}
 
 function App(){
-  const [numberOfPhases, setnumberOfPhases] = React.useState(
-   () => parseInt(window.localStorage.getItem('numberOfPhases')) || 4584,
-    );
-  React.useEffect(() => {
-    window.localStorage.setItem('numberOfPhases', numberOfPhases)
-  })
-  const handleChange = event => setnumberOfPhases(parseInt(event.target.value));
+
+  const [numberOfPhases, setNumberOfPhases] = useLocalStorageState("numberOfPhases", 4584)
+  const [numberOfColumns, setNumberOfColumns] = useLocalStorageState("numberOfColumns", 5)
+
+  const handleNumberOfPhasesChange = event => setNumberOfPhases(parseInt(event.target.value));
+  const handleNumberOfColumnsChange = event => setNumberOfColumns(parseInt(event.target.value))
   return(
             <div>
               <form onSubmit={(e)=>e.preventDefault()}>
                 <label htmlFor="numberOfPhases">Number of Phases</label>
-                <input type="number" onChange={handleChange} id="numberOfPhases" value={numberOfPhases.toString()}/>
+                <input type="number" onChange={handleNumberOfPhasesChange} id="numberOfPhases" value={numberOfPhases.toString()}/>
+              
+                <label htmlFor="numberOfColumns">Number of Columns</label>
+                <input type="number" onChange={handleNumberOfColumnsChange} id="numberOfColumns" value={numberOfColumns.toString()}/>
+              
               </form>
-              {CreatePhases(numberOfPhases)}
+              {CreatePhases(numberOfPhases, numberOfColumns)}
             </div> 
           
   )

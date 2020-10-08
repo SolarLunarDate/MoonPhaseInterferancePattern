@@ -1,0 +1,85 @@
+$pixel-size:5px;
+$pixel-margin: 5px;
+
+
+@mixin create-column-width($columns) {
+    width: ($pixel-size + $pixel-margin * 2) * 12 * $columns ;
+}
+
+
+#phases {
+    &.columns-1{ @include create-column-width(1) }
+    &.columns-2{ @include create-column-width(2) }
+    &.columns-3{ @include create-column-width(3) }
+    &.columns-4{ @include create-column-width(4) }
+    &.columns-5{ @include create-column-width(5) }
+    &.columns-6{ @include create-column-width(6) }
+    &.columns-7{ @include create-column-width(7) }
+    &.columns-8{ @include create-column-width(8) }
+    &.columns-9{ @include create-column-width(9) }
+    &.columns-10{ @include create-column-width(10) }
+    &.columns-11{ @include create-column-width(11) }
+    &.columns-12{ @include create-column-width(12) }
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 0;
+
+
+ div {
+    visibility: hidden;
+    background-size: contain;
+    background-position: center center;
+    width: $pixel-size;
+    height: $pixel-size;
+    margin: $pixel-margin;
+}
+
+div:nth-child(12n -11) {
+    background-image: url(1.png);
+}
+
+ div:nth-child(12n -10) {
+    background-image: url(2.png);
+}
+
+ div:nth-child(12n -9) {
+    background-image: url(3.png);
+}
+
+ div:nth-child(12n -8) {
+    background-image: url(4.png);
+}
+
+ div:nth-child(12n -7) {
+    background-image: url(5.png);
+}
+
+ div:nth-child(12n -6) {
+    background-image: url(6.png);
+}
+
+ div:nth-child(12n -5) {
+    background-image: url(7.png);
+}
+
+ div:nth-child(12n -4) {
+    background-image: url(8.png);
+}
+
+ div:nth-child(12n -3) {
+    background-image: url(9.png);
+}
+
+ div:nth-child(12n -2) {
+    background-image: url(10.png);
+}
+
+ div:nth-child(12n -1) {
+    background-image: url(11.png);
+}
+
+ div:nth-child(12n) {
+    background-image: url(12.png);
+}
+}
