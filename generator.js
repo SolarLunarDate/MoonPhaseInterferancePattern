@@ -5,7 +5,10 @@ import PropTypes from "prop-types";
 const target = document.getElementById('target')
 
 function Phase({...rest}){
-  const [visibility, setVisibility] = React.useState(UpdateVisibilityStyle());
+  const [visibility, setVisibility] = React.useState({});
+  React.useEffect(() => {
+    setVisibility(UpdateVisibilityStyle())
+  },[])
   const handleChange = () => setVisibility(UpdateVisibilityStyle());
   return <div onMouseOver={handleChange} style={visibility} {...rest} />
 }
