@@ -19,7 +19,7 @@
     "react-dom": "^16.13.1"
   },
   "scripts":{
-    "run": "parcel index.html",
+    "start": "parcel index.html",
     "build": "parcel build index.html --out-dir docs"
   }
 }
