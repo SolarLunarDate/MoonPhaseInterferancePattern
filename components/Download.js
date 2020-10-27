@@ -3,9 +3,9 @@ import { useScreenshot, createFileName } from "use-react-screenshot";
 
 export default ({children}) => {
   const ref = createRef(null);
-  const [image, takeScreenShot] = useScreenshot();
+  const [image, takeScreenShot] = useScreenshot({ type: 'image/jpeg' });
 
-  const download = (image, { name = "img", extension = "png" } = {}) => {
+  const download = (image, { name = "img", extension = "jpg" } = {}) => {
     const a = document.createElement("a");
     a.href = image;
     a.download = createFileName(extension, name);
@@ -16,7 +16,7 @@ export default ({children}) => {
 
   useEffect(() => {
     if (image) {
-      download(image, { name: "lorem-ipsum", extension: "png" });
+      download(image, { name: "MoonPhase", extension: "jpg" });
     }
   }, [image]);
 

@@ -2229,6 +2229,10 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+use-react-screenshot@../use-react-screenshot/use-react-screenshot-1.0.2.tgz:
+  version "1.0.2"
+  resolved "../use-react-screenshot/use-react-screenshot-1.0.2.tgz#5685f7e754eb16929f256164b745d633b6385cb4"
+
 use-react-screenshot@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/use-react-screenshot/-/use-react-screenshot-1.0.2.tgz#a563a6c756086ebc975e7307d14f100dce9dc74c"
