@@ -13,11 +13,11 @@ function Phase({seed, prng, ...rest}){
   return <div onMouseOver={handleChange} style={visibility} {...rest} />
 }
 
-export default function CreatePhases(numberOfPhases, numberOfColumns, seed){
+export default function CreatePhases(numberOfPhases, numberOfColumns, seed, ref){
     var prng = new Alea(seed)
     const array = new Array(numberOfPhases).fill(undefined).map((_,index)=> <Phase seed={seed} prng={prng} key={index}/>);
     return (
-      <div id="phases" className={"columns-"+numberOfColumns}>
+      <div id="phases" className={"columns-"+numberOfColumns} ref={ref}>
         {array}
       </div>
     )

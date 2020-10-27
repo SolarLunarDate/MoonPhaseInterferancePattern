@@ -6,6 +6,10 @@ $pixel-margin: 5px;
     &.columns-#{$columns} {width: ($pixel-size + $pixel-margin * 2) * 12 * $columns} ;
 }
 
+.phase-container
+{
+    display: table;
+}
 
 #phases {
     @for $column from 1 through 13{

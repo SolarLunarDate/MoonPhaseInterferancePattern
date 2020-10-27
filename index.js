@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import CreatePhases from "./components/phases";
+import Download from "./components/Download";
 import useLocalStorageState from "./helpers/local-storage-state";
-
 
 const target = document.getElementById('target')
 
@@ -27,10 +27,13 @@ function App(){
                 <input max="13" min="1" type="number" onChange={handleNumberOfColumnsChange} id="numberOfColumns" value={numberOfColumns.toString()}/>
               
               </form>
-              {CreatePhases(numberOfPhases, numberOfColumns, seed)}
+              <Download>
+                {CreatePhases(numberOfPhases, numberOfColumns, seed)}
+              </Download>
             </div> 
           
   )
   
 }
+
 ReactDOM.render(<App />, target);
