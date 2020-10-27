@@ -1889,6 +1889,11 @@ q@^1.1.2:
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
+query-state-core@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/query-state-core/-/query-state-core-2.3.0.tgz#bfe1d00d073bfc52be1e50c6fb1a63bf0067041c"
+  integrity sha512-jYKdpxb3AJCxaPpn9WdRB1E9Cstz4MikCDb5PynwVrPuTPfCVpu+eOzTZtb96QyOeD26fe+RiS9XdwFTqoQCZg==
+
 react-dom@^16.13.1:
   version "16.14.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
@@ -2229,14 +2234,16 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+use-location-state@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/use-location-state/-/use-location-state-2.3.1.tgz#5975e55e1253d3203caf1060e6e9e4e408d33c24"
+  integrity sha512-dR8pm7rCtQ0MsUy7O4upotBRooV0knsrEVnOntkoM2I2SKckb2luRSvE/wSPsHNYUj5DdLgoq+10/4A/9P11zw==
+  dependencies:
+    query-state-core "^2.3.0"
+
 use-react-screenshot@../use-react-screenshot/use-react-screenshot-1.0.2.tgz:
   version "1.0.2"
   resolved "../use-react-screenshot/use-react-screenshot-1.0.2.tgz#5685f7e754eb16929f256164b745d633b6385cb4"
-
-use-react-screenshot@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/use-react-screenshot/-/use-react-screenshot-1.0.2.tgz#a563a6c756086ebc975e7307d14f100dce9dc74c"
-  integrity sha512-dEloUgNs7tt187Qdmnce848uIL/QEpw7d/g4QmVif3daygrnMWbcpS+Lq5F2KlEjuKJIS4Ws1zxVACO5T5lo5Q==
 
 util-deprecate@^1.0.2:
   version "1.0.2"

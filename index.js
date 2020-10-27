@@ -2,29 +2,36 @@ import React from "react";
 import ReactDOM from "react-dom";
 import CreatePhases from "./components/phases";
 import Download from "./components/Download";
-import useLocalStorageState from "./helpers/local-storage-state";
+import { useQueryState } from 'use-location-state'
 
 const target = document.getElementById('target')
 
 function App(){
 
-  const [numberOfPhases, setNumberOfPhases] = useLocalStorageState("numberOfPhases", 4584)
-  const [numberOfColumns, setNumberOfColumns] = useLocalStorageState("numberOfColumns", 5)
-  const [seed, setSeed] = useLocalStorageState("seed", 5)
-  const handleNumberOfPhasesChange = event => setNumberOfPhases(parseInt(event.target.value));
-  const handleNumberOfColumnsChange = event => setNumberOfColumns(parseInt(event.target.value))
-  const handleSeedChange = event => setSeed(parseInt(event.target.value))
+  const [numberOfPhases, setNumberOfPhases] = useQueryState("numberOfPhases", 4584)
+  const [numberOfColumns, setNumberOfColumns] = useQueryState("numberOfColumns", 5)
+  const [year, setYear] = useQueryState("year", 2020)
+  const [lunarMonth, setLunarMonth] = useQueryState("lunarMonth", 5)
+  const [lunarDay, setLunarDay] = useQueryState("lunarDay", 5)
+  const handler = (fun, event) => fun(parseInt(event.target.value))
+  const seed = {year: year, lunarMonth: lunarMonth, lunarDay: lunarDay}
   return(
             <div>
               <form onSubmit={(e)=>e.preventDefault()}>
                 <label htmlFor="numberOfPhases">Number of Phases</label>
-                <input min="1" type="number" onChange={handleNumberOfPhasesChange} id="numberOfPhases" value={numberOfPhases.toString()}/>
-              
-                <label htmlFor="seed">Seed For Random Number Generator</label>
-                <input min="1" type="number" onChange={handleSeedChange} id="seed" value={seed.toString()}/>
-              
+                <input min="1" type="number" onChange={ e => handler(setNumberOfPhases, e)} id="numberOfPhases" value={numberOfPhases.toString()}/>
+
+                <fieldset>
+                  <legend>Seed For Random Number Generator:</legend>
+                    <label htmlFor="year">Year</label>
+                    <input type="number" onChange={e => handler(setYear, e)} id="year" value={year.toString()}/>
+                    <label htmlFor="lunar-month">Lunar Month</label>
+                    <input type="number" onChange={e => handler(setLunarMonth, e)} id="lunar-month" value={lunarMonth.toString()}/>
+                    <label htmlFor="lunar-day">Lunar Day</label>
+                    <input type="number" onChange={e => handler(setLunarDay, e)} id="lunar-day" value={lunarDay.toString()}/>  
+                </fieldset>
                 <label htmlFor="numberOfColumns">Number of Columns</label>
-                <input max="13" min="1" type="number" onChange={handleNumberOfColumnsChange} id="numberOfColumns" value={numberOfColumns.toString()}/>
+                <input max="13" min="1" type="number" onChange={e => handler(setNumberOfColumns, e)} id="numberOfColumns" value={numberOfColumns.toString()}/>
               
               </form>
               <Download>

@@ -1,6 +1,6 @@
 {
   "name": "moonphase",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "author": "Craig Chamberlain <craig.chamberlain11@gmail.com>",
   "license": "MIT",
@@ -19,6 +19,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "use-location-state": "^2.3.1",
     "use-react-screenshot": "../use-react-screenshot/use-react-screenshot-1.0.2.tgz"
   },
   "scripts": {
