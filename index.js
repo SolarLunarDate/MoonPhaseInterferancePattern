@@ -13,7 +13,7 @@ function App(){
   const [year, setYear] = useQueryState("year", 2020)
   const [lunarMonth, setLunarMonth] = useQueryState("lunarMonth", 5)
   const [lunarDay, setLunarDay] = useQueryState("lunarDay", 5)
-  const handler = (fun, event) => fun(parseInt(event.target.value))
+  const handler = (fun, event) => fun(parseInt(event.target.value), { method: 'push' })
   const seed = {year: year, lunarMonth: lunarMonth, lunarDay: lunarDay}
   return(
             <div>
